@@ -1,9 +1,4 @@
-function howdy() {
-  console.log('yo');
-}
-
-howdy();
-
+//return underscores for letters
 function Letter(word) {
   this.underscore = function () {
     const lettersArray = word.split('');
@@ -12,7 +7,7 @@ function Letter(word) {
   };
 }
 
-const thingy = new Letter('Pinecone');
-console.log(thingy.underscore());
+// const thingy = new Letter('Pinecone');
+// console.log(thingy.underscore());
 
-// module.exports = howdy;
+module.exports = Letter;
