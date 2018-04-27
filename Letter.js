@@ -1,13 +1,18 @@
-//return underscores for letters
-function Letter(word) {
-  this.underscore = function () {
-    const lettersArray = word.split('');
-    const underScores = lettersArray.map(elem => '_');
-    return underScores;
-  };
-}
 
-// const thingy = new Letter('Pinecone');
-// console.log(thingy.underscore());
+function Letter (letter, letterGuessed){
+  this.letter = letter;
+  this.letterGuessed = false;
+  this.checkTheLetter = function (elem) {
+    return elem;
+  }
+  this.showtime = function (){
+    if (letterGuessed === true){
+      //show letter
+    }
+    else if (letterGuessed === false){
+      //show underscore
+    }
+  }
+}
 
 module.exports = Letter;

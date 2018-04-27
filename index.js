@@ -1,5 +1,6 @@
 //require Letter.js
 const Letter = require('./Letter.js');
+const Word = require('./Word.js');
 const inquirer = require('inquirer');
 //console.log(Letter);
 //word bank - Marvel characters
@@ -9,9 +10,9 @@ const chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
 //console.log(chosen);
 
 //plug chosen into constructor
-const wordWord = new Letter(chosen);
+const theWord = new Word(chosen);
 console.log(chosen);
-console.log(wordWord.underscore());
+console.log(theWord.underscore());
 
 function prompt () {
     inquirer.prompt([
@@ -21,7 +22,12 @@ function prompt () {
             name: 'letterGuess'
         }
     ]).then(answers => {
-        console.log(answers);
+        console.log(answers.letterGuess);
+        if (chosen.includes(answers.letterGuess)){
+            console.log('yes');
+        }
+        const newbie = new Letter(answers.letterGuess, false)
+        console.log(newbie);
     })
 }
 
