@@ -1,18 +1,19 @@
 
-function Letter (letter, letterGuessed){
+function Letter (letter){
   this.letter = letter;
+  //console.log(letter);
+  //default to false to display underscore
   this.letterGuessed = false;
-  this.checkTheLetter = function (elem) {
-    return elem;
-  }
-  this.showtime = function (){
-    if (letterGuessed === true){
-      //show letter
-    }
-    else if (letterGuessed === false){
-      //show underscore
+  
+  this.displayLetter = function (letter) {
+    if (this.letterGuessed === false){
+      this.letter = '_';
+      return this.letter;
     }
   }
 }
+
+// const bee = new Letter('b');
+// bee.displayLetter();
 
 module.exports = Letter;
