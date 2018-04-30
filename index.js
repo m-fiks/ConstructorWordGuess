@@ -5,11 +5,14 @@ const inquirer = require('inquirer');
 //word bank - Marvel characters
 const wordBank = ['Spiderman', 'Hawkeye', 'Black Widow', 'Captain America', 'Iron Man', 'Hulk', 'Thor', 'Loki', 'Black Panther', 'Deadpool', 'Doctor Strange', 'Ant-Man', 'Falcon', 'Captain Marvel', 'Scarlet Witch', 'Quicksilver', 'Vision', 'War Machine'];
 //choose random word for game play
-const chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
+let chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
+//take out spaces and make all letters UPPERCASE
+chosen = chosen.replace(/\s+/g, '').toUpperCase();
 
 //plug chosen into constructor and display underscores
 const theWord = new Word(chosen);
-theWord.underscore();
+theWord.testUnderscore();
+//console.log(theWord)
 
 //prompt user to guess a letter
 function prompt () {
@@ -20,25 +23,12 @@ function prompt () {
             name: 'letterGuess'
         }
     ]).then(answers => {
-        let currentLetter = answers.letterGuess;
-        if (chosen.includes(currentLetter)){
-            const newbie = new Letter(currentLetter, true)
-            for (let i=0; i<chosen.length;i++){
-                if(chosen[i] === currentLetter){
-                    console.log('inthere');
-                }
-            }
-        }
-        else{
-            console.log('o shit');
+        //user letter guess in converted to capital letter to match
+        let currentLetter = (answers.letterGuess).toUpperCase();
+        if(chosen.includes(currentLetter)){
+            theWord.checkLetter(currentLetter);
         }
     })
 }
 
 prompt();
-
-function showLetter () {
-
-}
-
-

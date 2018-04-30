@@ -1,33 +1,28 @@
-//dependent on letter.js
 const Letter = require('./Letter.js');
-//return underscores for letters
-function Word(chosenWord) {
-  this.chosenWord = chosenWord;
-  this.arrayArray = [];
-  this.testUnderscore = function () {
-    const arrayOfLetters = chosenWord.split('');
-    arrayOfLetters.forEach(element => {
-      const garbage = new Letter(element)
-    //console.log(garbage.letter);
-      console.log(garbage.displayLetter(garbage.letter));
-      this.arrayArray.push(garbage.letter);
-      
-      });
-      console.log(this.arrayArray)
-    };
-  
-    // this.underscore = function () {
-    //   let arrayChosen = chosenWord.toLowerCase().split('');
-    //   //if letter not guessed use underscore
-    //   const underScores = arrayChosen.map(elem => '_');
-    //   console.log(underScores);
-      //else display letter
-    //}
-    // this.correctArray = function (elem){
-    //   push correct letter into array?
-    // }
-  }
-  const mouse = new Word('apple');
- mouse.testUnderscore();
 
-  module.exports = Word;
+
+function Word (currentWord){
+  this.currentWord = currentWord;
+  let letterArray = currentWord.split('');
+  let newArray = [];
+  let letters;
+  let secLetterArray = [];
+  for(let i =0; i<letterArray.length; i++){
+    newArray.push(new Letter(letterArray[i]));
+    
+  }
+
+  newArray.forEach((elem) => {
+    if (newArray.length > 1){
+      elem.display = true;
+    }
+    secLetterArray.push(elem.displayLetter());
+  });
+
+  console.log(secLetterArray)
+  
+
+//end constructor func
+}
+
+let vari = new Word('pinecone');
