@@ -8,7 +8,7 @@ const wordBank = ['Spiderman', 'Hawkeye', 'Black Widow', 'Captain America', 'Iro
 let chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
 //take out spaces and make all letters UPPERCASE
 chosen = chosen.replace(/\s+/g, '').toUpperCase();
-
+console.log(chosen);
 //plug chosen into constructor and display underscores
 const theWord = new Word(chosen);
 theWord.displayLet();
@@ -25,10 +25,9 @@ function prompt () {
     ]).then(answers => {
         let currentGuess = (answers.letterGuess).toUpperCase()
         console.log(currentGuess)
-        if (theWord.currentWord.includes(currentGuess)){
-            theWord.checkLetter(currentGuess);
-            theWord.displayLet();
-        }
+        theWord.checkLetter(currentGuess);
+        theWord.displayLet();
+
         
     })
 }

@@ -1,4 +1,3 @@
-
 function Letter (letter){
   this.letter = letter;
   this.display = false;
