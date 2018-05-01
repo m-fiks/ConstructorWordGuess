@@ -19,7 +19,7 @@ function Word (currentWord){
         // console.log(this.newArray)
       }
     }
-    console.log(this.newArray)
+    console.log(this.newArray.join(' '))
   }
 
     this.checkLetter = function (guessedLetter){
@@ -33,7 +33,7 @@ function Word (currentWord){
 //end constructor func
 }
 
-let vari = new Word('pinecone');
-vari.displayLet()
+// let vari = new Word('pinecone');
+// vari.displayLet()
 
 module.exports = Word;

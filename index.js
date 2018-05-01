@@ -11,8 +11,8 @@ chosen = chosen.replace(/\s+/g, '').toUpperCase();
 
 //plug chosen into constructor and display underscores
 const theWord = new Word(chosen);
-theWord.letterDisFunc(false);
-//console.log(theWord)
+theWord.displayLet();
+// console.log(theWord)
 
 //prompt user to guess a letter
 function prompt () {
@@ -26,8 +26,8 @@ function prompt () {
         let currentGuess = (answers.letterGuess).toUpperCase()
         console.log(currentGuess)
         if (theWord.currentWord.includes(currentGuess)){
-            //console.log(theWord)
-            theWord.letterDisFunc(false);
+            theWord.checkLetter(currentGuess);
+            theWord.displayLet();
         }
         
     })
