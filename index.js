@@ -12,6 +12,7 @@ chosen = chosen.replace(/\s+/g, '').toUpperCase();
 let guessesRemaining = (chosen.length) + 2;
 
 let correctGuesses = [];
+let incorrectGuesses = [];
 //plug chosen into constructor and display underscores
 const theWord = new Word(chosen);
 theWord.displayLet();
@@ -20,6 +21,7 @@ theWord.displayLet();
 //prompt user to guess a letter
 function prompt () {
     console.log(`Guesses Remaining: ${guessesRemaining}`);
+    console.log(`Letters already guessed: ${incorrectGuesses} ${correctGuesses}`)
     inquirer.prompt([
         {
             type: 'input',
@@ -39,7 +41,9 @@ function prompt () {
         }
         else{
             //prompt user to guess again
+            incorrectGuesses.push(currentGuess);
             console.log('incorrect guess. try again!')
+            theWord.displayLet();
             guessesRemaining--;
             gameOver();
         }
