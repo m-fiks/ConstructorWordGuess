@@ -11,7 +11,7 @@ chosen = chosen.replace(/\s+/g, '').toUpperCase();
 
 //plug chosen into constructor and display underscores
 const theWord = new Word(chosen);
-theWord.testUnderscore();
+theWord.letterDisFunc(false);
 //console.log(theWord)
 
 //prompt user to guess a letter
@@ -23,12 +23,13 @@ function prompt () {
             name: 'letterGuess'
         }
     ]).then(answers => {
-        //user letter guess in converted to capital letter to match
-        let currentLetter = (answers.letterGuess).toUpperCase();
-        if(chosen.includes(currentLetter)){
-            theWord.checkLetter(currentLetter);
+        let currentGuess = (answers.letterGuess).toUpperCase()
+        console.log(currentGuess)
+        if (theWord.currentWord.includes(currentGuess)){
+            //console.log(theWord)
+            theWord.letterDisFunc(false);
         }
+        
     })
 }
-
 prompt();
