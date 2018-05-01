@@ -10,8 +10,6 @@ let chosen = wordBank[Math.floor(Math.random() * wordBank.length)];
 chosen = chosen.replace(/\s+/g, '').toUpperCase();
 
 let guessesRemaining = (chosen.length) + 2;
-console.log(guessesRemaining);
-
 
 let correctGuesses = [];
 //plug chosen into constructor and display underscores
@@ -21,6 +19,7 @@ theWord.displayLet();
 
 //prompt user to guess a letter
 function prompt () {
+    console.log(`Guesses Remaining: ${guessesRemaining}`);
     inquirer.prompt([
         {
             type: 'input',
@@ -35,6 +34,7 @@ function prompt () {
             theWord.checkLetter(currentGuess);
             theWord.displayLet();
             correctGuesses.push(currentGuess);
+            guessesRemaining--;
             gameOver();
         }
         else{
