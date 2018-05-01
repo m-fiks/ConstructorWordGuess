@@ -13,7 +13,6 @@ function Word (currentWord){
     for (const letter in this){
       if(this[letter].displayLetter){
         this.newArray.push(this[letter].displayLetter())
-        // console.log(this.newArray)
       }
     }
     console.log(this.newArray.join(' '));
